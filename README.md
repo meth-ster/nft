@@ -1,69 +1,37 @@
-# Binance project
+# nft
+A simple JavaScript library for working with NFTs.
 
-# Read respective folders
+## What it does
+This library provides a set of tools for creating, managing, and interacting with NFTs on various blockchain platforms. It handles tasks such as metadata generation, image processing, and smart contract deployment.
 
-- www: [Frontend](./www)
-
-# Setup
-
-## Compile contracts
-
-`npm run build` (runs `truffle compile`)
-
-## Run tests
-
-Run each command in a separate terminal:
-
+## Installation
+To get started, install the library using npm:
+```bash
+npm install
 ```
-npx truffle develop -m 'pipe sponsor ski junk pact refuse ketchup basket return choose network purchase'
-npx truffle test
+Then, import it into your JavaScript project:
+```javascript
+const NFT = require('./nft');
 ```
+## Running the example
+There's a simple example in the `example` directory that demonstrates how to use the library to create and deploy an NFT:
+```javascript
+const NFT = require('../nft');
 
-Starting truffle develop with this specific mnemonic is needed to have access to the private keys in the tests, to able to sign messages.
+// Create a new NFT
+const myNFT = new NFT({
+  name: 'My NFT',
+  description: 'This is my NFT',
+  image: 'path/to/image.png'
+});
 
-# Truffle
-
-# Resources
-
-https://docs.binance.org/smart-chain/developer/deploy/truffle.html
-
-- Checking deployment status: https://bscscan.com/
-- testnet: https://testnet.bscscan.com/
-- deploy NFT on BSC: https://docs.binance.org/smart-chain/developer/ERC721.html
-
-## NFT
-
-ERC721 standard: Non-fungible, tokens are not the same
-ERC-1155: Combines benefits of fungible and non fungible (more for games, allows you mint both fungible and non-fungible)
-
-- ERC721: Create single collectible (https://app.rarible.com/create/erc721)
-- ERC1155: Create Multiple collectibles (selling multiple pieces of an art) (https://app.rarible.com/create/erc1155)
-
-### NFT Explanations
-
-- https://youtu.be/hYYxBgyOtdM
-
-### NFT Tutorials
-
-- https://youtu.be/YPbgjPPC1d0
-
-# Chain ids
-
-- 3: Ropsten
-
-## Art NFT networks
-
-SuperRare
-OpenSea
-Rarible (cannibalizing sales)
-
-- unlockable art: extra stuff that comes available when you own it
-- royalties
-- supports in-game items
-- insurance for yearn.finance?
-- 4 wallets: fortmatic/walletconnect/walletlink/metamask
-- supports erc 721 and ERC 1155
-- governance through RARI token
-- Liquidity mining: they distribute 75k rari tokens every sunday to people who bought or sold stuff on the platform (DROVE TRAFFIC!!)
-- their inflation is too high!! 75k is too high, they already suggested burn mechanism
-- they're implemention commission
+// Deploy the NFT to the blockchain
+myNFT.deploy().then(() => {
+  console.log('NFT deployed successfully');
+});
+```
+Run the example using node:
+```bash
+node example/index.js
+```
+This will create and deploy a new NFT to the blockchain. Check out the `example` directory for more information.
